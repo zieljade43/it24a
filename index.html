@@ -58,6 +58,9 @@
 
             const editButton = createEditButton(li);
             li.appendChild(editButton);
+
+            const deleteButton = createDeleteButton(li);
+            li.appendChild(deleteButton);
         }
 
         function createDoneButton(li) {
@@ -103,6 +106,20 @@
             } else {
                 alert("Task not updated. Please enter a valid task.");
             }
+        }
+
+        function createDeleteButton(li) {
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.style.marginLeft = '8px';
+            deleteButton.onclick = () => handleDeleteTask(li);
+
+            return deleteButton;
+        }
+
+        function handleDeleteTask(li) {
+            li.remove();
+            alert("Task deleted");
         }
     </script>
 
